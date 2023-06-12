@@ -50,3 +50,8 @@ import { sum } from './lib.js';
 - use `npm update` to update packages safely. `npm outdated` shows outdated and latets versions of packages installed in your **package.json**
 - use `npm uninstall <package-name>` to uninstall packages from `package.json`
 - `node_modules` should not be shared - you can make `.gitignore`to ignore them to be uploaded.
+
+1. [Callbacks](https://github.com/Sabbir2809/nodejs-express-mongodb/blob/chapter-1/JS%20Async/real-life-implement-callback.js)
+1. [Asynchronous](https://github.com/Sabbir2809/nodejs-express-mongodb/blob/chapter-1/JS%20Async/asynchronous.js)
+1. [Promises](https://github.com/Sabbir2809/nodejs-express-mongodb/blob/chapter-1/JS%20Async/real-life-implement-promise.js)
+1. [Async Await](https://www.w3schools.com/js/js_async.asp)
