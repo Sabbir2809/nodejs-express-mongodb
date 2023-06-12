@@ -50,3 +50,10 @@ import { sum } from './lib.js';
 - use `npm update` to update packages safely. `npm outdated` shows outdated and latets versions of packages installed in your **package.json**
 - use `npm uninstall <package-name>` to uninstall packages from `package.json`
 - `node_modules` should not be shared - you can make `.gitignore`to ignore them to be uploaded.
+
+### JavaScript Asynchronous
+
+1. [Callbacks](https://www.w3schools.com/js/js_callback.asp)
+1. [Asynchronous]()
+1. [Promises](https://www.w3schools.com/js/js_promise.asp)
+1. [Async Await](https://www.w3schools.com/js/js_async.asp)
