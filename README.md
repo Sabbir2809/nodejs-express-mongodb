@@ -1,8 +1,6 @@
-# Node.js Express.js MongoDB
+# Backend: Node.js Express.js MongoDB
 
-## Chapter-1 : Introduction to Node, NPM, Package.json
-
-### [[Chapter Notes]]
+### [Chapter-1: Introduction to Node, NPM, Package.json](https://github.com/Sabbir2809/nodejs-express-mongodb/tree/chapter-1)
 
 - **Node JS** installation from official site nodejs.org - use only LTS versions
 - Use **terminal / command prompt** to check installation :
