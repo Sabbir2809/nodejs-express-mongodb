@@ -29,7 +29,7 @@ function getCertificate() {
   console.log('Preparing your certificate');
 
   setTimeout(() => {
-    console.log('Congrats! You go the certificate');
+    console.log('Congrats! You got the certificate');
   }, 1000);
 }
 

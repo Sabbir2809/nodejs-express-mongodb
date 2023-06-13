@@ -1,15 +1,15 @@
 const paymentSuccess = true;
-const marks = 70;
+const marks = 67;
 
 function enroll() {
-  console.log('Course enrollment is in progress.');
+  console.log('Course enrollment is in progress');
 
   const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
       if (paymentSuccess) {
         resolve();
       } else {
-        reject('Payment Failed');
+        reject('Payment Fail, Please Try Again!');
       }
     }, 2000);
   });
@@ -34,21 +34,22 @@ function progress() {
 function getCertificate() {
   console.log('Preparing your certificate');
 
-  const promise = new Promise((resolve) => {
+  const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
       resolve('Congrats! You go the certificate');
-    }, 1000);
+    }, 1500);
   });
   return promise;
 }
 
-// call
-enroll()
-  .then(progress)
-  .then(getCertificate)
-  .then((value) => {
-    console.log(value);
-  })
-  .catch((error) => {
+async function course() {
+  try {
+    await enroll();
+    await progress();
+    const complete = await getCertificate();
+    console.log(complete);
+  } catch (error) {
     console.error(error);
-  });
+  }
+}
+course();
