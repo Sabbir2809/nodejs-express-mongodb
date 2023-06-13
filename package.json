@@ -1,22 +1,21 @@
 {
   "name": "nodejs-express-mongodb",
   "version": "1.0.0",
-  "description": "Introduction to Node, NPM, Package.JSON",
+  "description": "Server Concepts with Node - http module",
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "dev": "nodemon index.js",
+    "dev": "nodemon 4_fs-module.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
+    "http",
+    "server",
     "npm",
     "node",
     "package.json"
   ],
   "author": "Md. Sabbir Hossain",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.18.2"
-  }
+  "license": "ISC"
 }
