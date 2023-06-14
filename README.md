@@ -1,101 +1,53 @@
-## [Chapter 3 - Express JS](https://github.com/Sabbir2809/nodejs-express-mongodb)
+## [Chapter-4: REST API using Express JS](https://github.com/Sabbir2809/nodejs-express-mongodb)
 
-- **ExpressJS** is Node framework - and used in most Node applications which are used as web server.
+#### HTTP Methods
 
-- You can install express `npm install express`
+The HTTP method is the type of request you send to the server. You can choose from these five types below:
 
-- Express has few level of methods :
+- `GET` : This request is used to get a resource from a server. If you perform a `GET` request, the server looks for the data you requested and sends it back to you. In other words, a `GET` request performs a `READ` operation. This is the default request method.
+- `POST` This request is used to create a new resource on a server. If you perform a `POST` request, the server creates a new entry in the database and tells you whether the creation is successful. In other words, a `POST` request performs an `CREATE` operation.
+- `PUT` and `PATCH`: These two requests are used to update a resource on a server. If you perform a `PUT` or `PATCH` request, the server updates an entry in the database and tells you whether the update is successful. In other words, a `PUT` or `PATCH` request performs an `UPDATE` operation.
+- `DELETE` : This request is used to delete a resource from a server. If you perform a `DELETE` request, the server deletes an entry in the database and tells you whether the deletion is successful. In other words, a `DELETE` request performs a `DELETE` operation.
 
-  - Application methods : e.g. app.use()
-  - Request methods
-  - Response methods
-  - Middleware methods
-  - Router methods
+**REST API** are a combination of METHODS( GET, POST etc) , PATH (based on resource name)
 
-- **Response** methods (**res** is our response objects)
+Suppose you have a resource named `task`, Here is the example of 5 REST APIs commonly available for task.
 
-  - **res.send()** - for sending HTML
-  - **res.sendFile(**) - for sending File
-  - **res.json** - for sending JSON
-  - **res.sendStatus(404)** - for sending HTTP status only
+1.  **READ APIs :**
 
-- **HTTP Request** Types we generally use :
+- GET `\tasks` : to read all
+- GET `\task\:id` : to read a particular task which can be identified by unique `id`
 
-  - GET()
-  - POST()
-  - PUT()
-  - DELETE()
-  - PATCH()
+2.  **CREATE APIs :**
 
-- API / Endpoints / Routes are used inter-changeably but they are related to server paths.
+- POST `\tasks` : to create a new task object (data will go inside request body)
 
-- **Middle-ware** : Modifies the request before it reaches the next middleware or endpoints.
+3.  **UPDATE APIs :**
 
-- Sequence of middleware is very important, as first middleware is first traversed by request.
+- PUT `\task\:id` : to update a particular task which can be identified by unique `id`. Data to be updated will be sent in the request body. Document data will be generally **totally replaced.**
+- PATCH `\task\:id` : to update a particular task which can be identified by unique `id`. Data to be updated will be sent in the request body. Only few fields will be replace which are sent in **request body**
 
-- Middle-wares can be used for many use cases, like loggers, authentication, parsing data etc.
+4.  **DELETE APIs** :
 
-- Middle-ware can be :
+- DELETE `\task\:id` : to delete a particular task which can be identified by unique `id`.
 
-  - Application level : server.use(**middleware**)
-  - Router level : server.get('/', **middleware**, (req,res)=>{})
-  - Built-in middleware : **express.json()** [ for parsing body data], **express.static()**[for static hosting]
-  - External Middle-wares - like **morgan**
+- **REST API** is a standard for making APIs.
+  - We have to consider a resource which we want to access - like **Product**
+  - We access **Product** using combination of HTTP method and URL style
 
-- **Request** properties (**req** is our request object)
+**REST API ( CRUD - Create , Read , Update, Delete) :**
 
-  - **req.ip** - IP address of client
-  - **req.method** - HTTP method of request
-  - **req.hostname** - like google.com / localhost
-  - **req.query** - for capturing query parameters from URL e.g. localhost:8080 ? **query=value**
-  - **req.body** -for capturing request body data (but its needs a middleware for body data decoding)
-  - **req.params** - for capturing URL parameters for route path like `/products/:id`
+- **CREATE**
+  - **POST** /products - create a new resource (product)
+- **READ**
 
-- **Static Hosting** : we can make 1 or more folders as static hosted using **express.static** middleware.
-  `server.use(express.static(< directory >))`
-  Static hosting is like sharing a folder/directory and making its file readable as it is.
-  Note : `index.html` is default file which would be read in a static hosted folder, if you don't mention any file name.
+  - **GET** /products - read many resources (products)
+  - **GET** /products/:id - read one specific resource (product)
 
-3 major ways of sending data from client to server via request are :
+- **UPDATE**
 
-**1. Send data via URL in Query String**
+  - **PUT** /products/:id - update by replacing all content of specific resource (product).
+  - **PATCH** /products/:id - update by only setting content from body of request and not replacing other parts of specific resource (product).
 
-This is easiest method to send data and mostly used in GET request.
-
-When you have URL with `?name=Youstart&subject=express` at end, it translates in a query string. In query string each key,value pair is separated by `=` and between 2 such pairs we put `&`.
-
-To read such data in express you can use `req.query` :
-
-```javascript
-server.get('/demo', function (req, res) {
-  console.log(req.query); // prints all data in request object
-  res.send(req.query); // send back same data in response object
-});
-```
-
-**2. Send data via Request Params**
-
-In this method you can have a URL with url path like `/Youstart/express` at end it translates in a param string. In param part string each value is separated by `/`. As you can see that URL only contains `value` not the `key` part of data. `key` part is decided by the endpoint definition at express server
-
-```javascript
-server.get('/demo/:name/:subject', function (req, res) {
-  console.log(req.params); // prints all data in request object
-  res.send(req.query); // send back same data in response object
-});
-```
-
-So sequence of values matter in this case. As values sent from client are matched with `name` and `subject` params of URL later.
-
-**3. Send data via Request Body**
-
-Final method of sending data is via body part of request. We can send data directly to body using URL. We have to either use one of these methods
-
-1.  Use a HTML Form and make `method` value as `POST`. This will make all name=value pair to go via body of request.
-2.  Use special browsers like POSTMAN to change the body directly. (We will see this example in next classes)
-
-```js
-server.post('/demo', function (req, res) {
-  console.log(req.body); // prints all data in request object
-  res.send(req.body); // send back same data in response object
-});
-```
+- **DELETE**
+  - **DELETE** /products/:id - delete a specific resource (product).
