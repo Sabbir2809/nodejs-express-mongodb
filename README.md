@@ -1,7 +1,9 @@
-## [Chapter 3 - Express JS]()
+## [Chapter 3 - Express JS](https://github.com/Sabbir2809/nodejs-express-mongodb)
 
-- **ExpressJS** is _de-facto_ Node framework - and used in most Node applications which are used as web server.
+- **ExpressJS** is Node framework - and used in most Node applications which are used as web server.
+
 - You can install express `npm install express`
+
 - Express has few level of methods :
 
   - Application methods : e.g. app.use()
@@ -11,21 +13,28 @@
   - Router methods
 
 - **Response** methods (**res** is our response objects)
+
   - **res.send()** - for sending HTML
   - **res.sendFile(**) - for sending File
   - **res.json** - for sending JSON
   - **res.sendStatus(404)** - for sending HTTP status only
+
 - **HTTP Request** Types we generally use :
-  - GET
-  - POST
-  - PUT
-  - DELETE
-  - PATCH
+
+  - GET()
+  - POST()
+  - PUT()
+  - DELETE()
+  - PATCH()
+
 - API / Endpoints / Routes are used inter-changeably but they are related to server paths.
 
 - **Middle-ware** : Modifies the request before it reaches the next middleware or endpoints.
+
 - Sequence of middleware is very important, as first middleware is first traversed by request.
+
 - Middle-wares can be used for many use cases, like loggers, authentication, parsing data etc.
+
 - Middle-ware can be :
 
   - Application level : server.use(**middleware**)
@@ -68,10 +77,12 @@ server.get('/demo', function (req, res) {
 
 In this method you can have a URL with url path like `/Youstart/express` at end it translates in a param string. In param part string each value is separated by `/`. As you can see that URL only contains `value` not the `key` part of data. `key` part is decided by the endpoint definition at express server
 
-server.get("/demo/:name/:subject",function(req,res){
-console.log(req.params) // prints all data in request object
-res.send(req.query); // send back same data in response object
-})
+```javascript
+server.get('/demo/:name/:subject', function (req, res) {
+  console.log(req.params); // prints all data in request object
+  res.send(req.query); // send back same data in response object
+});
+```
 
 So sequence of values matter in this case. As values sent from client are matched with `name` and `subject` params of URL later.
 
