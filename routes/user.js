@@ -1,7 +1,7 @@
+// Dependencies
 const express = require('express');
-const userController = require('../controller/user');
-
 const router = express.Router();
+const userController = require('../controller/user');
 
 router
   .post('/', userController.createUser)
@@ -11,4 +11,5 @@ router
   .patch('/:id', userController.updateUser)
   .delete('/:id', userController.deleteUser);
 
-exports.router = router;  
+// export
+exports.router = router;
