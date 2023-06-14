@@ -16,7 +16,6 @@ const products = data.products;
 
 //Create POST /products
 server.post('/products', (req, res) => {
-  console.log(req.body);
   products.push(req.body);
   res.status(201).json(req.body);
 });
@@ -59,6 +58,7 @@ server.delete('/products/:id', (req, res) => {
   res.status(201).json(product);
 });
 
-server.listen(8080, () => {
-  console.log('server started');
+// PORT const port = 8080
+server.listen(port, () => {
+  console.log(`Server is Running on http://localhost:${port}`);
 });
