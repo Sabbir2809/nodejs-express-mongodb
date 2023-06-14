@@ -96,7 +96,7 @@ Response object comprises of many properties, but important ones are :
 
 ---
 
-## [Chapter 3 - Express JS](https://github.com/Sabbir2809/nodejs-express-mongodb/tree/chapter-3)
+## [Chapter-3: Express JS](https://github.com/Sabbir2809/nodejs-express-mongodb/tree/chapter-3)
 
 - **ExpressJS** is _de-facto_ Node framework - and used in most Node applications which are used as web server.
 - You can install express `npm install express`
