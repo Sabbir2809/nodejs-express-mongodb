@@ -1,7 +1,7 @@
 // Dependencies
 const express = require('express');
 const router = express.Router();
-const productController = require('../controller/product');
+const productController = require('../controllers/product');
 
 router
   .post('/products', productController.createProduct)
