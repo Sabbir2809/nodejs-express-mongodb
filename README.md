@@ -1,4 +1,4 @@
-## [Chapter-5: Backend Directory Structure / MVC / Router](https://github.com/Sabbir2809/nodejs-express-mongodb)
+## [Chapter-6: Backend Directory Structure / MVC / Router](https://github.com/Sabbir2809/nodejs-express-mongodb)
 
 1. MVC (Model-View-Controller) is **a pattern in software design commonly used to implement user interfaces (VIEW), data (MODEL), and controlling logic (CONTROLLER)**. It emphasizes a separation between the software's business logic and display.
 
