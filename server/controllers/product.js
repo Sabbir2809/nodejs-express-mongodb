@@ -86,12 +86,11 @@ exports.updateProduct = async (req, res) => {
 exports.deleteProduct = async (req, res) => {
   try {
     const id = req.params.id;
-    const update = req.body;
-    await Product.findByIdAndDelete({ _id: id });
+    const productDelete = await Product.findByIdAndDelete({ _id: id });
 
     res.status(201).json({
       message: 'Success',
-      data: 'Deleted Successfully',
+      data: productDelete,
     });
   } catch (error) {
     res.status(400).json({ message: 'Fail', Error: error.message });
