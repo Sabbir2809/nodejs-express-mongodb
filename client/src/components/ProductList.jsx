@@ -7,13 +7,13 @@ const ProductList = () => {
   const [products, setProducts] = useState([]);
 
   const getProducts = async () => {
-    const res = await axios.get('http://localhost:8080/api/v1/products');
+    const res = await axios.get('/api/v1/products');
     const data = res.data.data;
     setProducts(data);
   };
 
   const handleClick = async (id) => {
-    const res = await axios.delete(`http://localhost:8080/api/v1/products/${id}`);
+    const res = await axios.delete(`/api/v1/products/${id}`);
     console.log(res.data.data);
     if (res.data.data._id) {
       setProducts(products.filter((p) => p._id !== res.data.data._id));
